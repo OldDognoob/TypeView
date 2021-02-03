@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/OldDognoob/TypeView#readme",
   "devDependencies": {
+    "@types/googlemaps": "^3.43.2",
     "ts-loader": "^8.0.14",
     "typescript": "^4.1.3",
     "webpack": "^5.20.0",
