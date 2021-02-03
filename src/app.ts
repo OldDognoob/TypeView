@@ -5,6 +5,8 @@ const addressInput = document.getElementById("address")! as HTMLInputElement;
 
 const GOOGLE_API_KEY = "AIzaSyCObkReE-o5HPPQa0kDVv2uLcd9jh3cInE";
 
+// declare var google: any;
+
 type GoogleGeocodingResponse = {
     results: { geometry: { location: { lat: number; lng: number } } }[];
     status: "OK" | "ZERO_RESULTS";
@@ -26,6 +28,11 @@ function searchAddressHandler(event: Event) {
       console.log(response);
     }
     const coordinates = response.data.results[0].geometry.location;
+    const map = new google.maps.Map(document.getElementById("map"), {
+      center: coordinates,
+      zoom: 16
+    }); 
+    new google.maps.Marker({ position: coordinates, map: map });
   })
   .catch(err => {
     alert(err.message);
